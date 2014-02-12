@@ -16,6 +16,7 @@ package
 	import away3d.primitives.*;
 	import away3d.textures.*;
 	import away3d.tools.utils.*;
+	import away3d.materials.ColorMaterial;
 	
 	import controls.*;
 	
@@ -25,19 +26,27 @@ package
 	 */
 	public class Main extends BaseView 
 	{
+		protected var cubeMaterial:ColorMaterial = new ColorMaterial(0xff0000, 1);
 		private var _t3d:TranslateGizmo3D;
-		
+		private var _cube:Mesh;
 		override protected function init():void
 		{
 			super.init();
+			ToolManager.stage = this.stage;
+			ToolManager.camera = _view.camera;
 			_t3d = new TranslateGizmo3D();
+			_cube = new Mesh(new CubeGeometry(), cubeMaterial);			
 			_view.scene.addChild(_t3d);
+			_view.scene.addChild(_cube);
+			_cube.mouseEnabled = false;
+			ToolManager.dragObj = _cube;
 		}
 		
 		override protected function loop():void
 		{			
 			super.loop();
-			_t3d.rotationY += 1;
+			//_t3d.rotationY += 1;
+			//_cube.rotationY += 1;
 		}
 	}
 }
