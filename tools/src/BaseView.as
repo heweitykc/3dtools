@@ -10,12 +10,8 @@ import away3d.containers.*;
 	import flash.events.*;
 	import flash.geom.Vector3D;
 
-	public class Basic_View extends Sprite
+	public class BaseView extends Sprite
 	{
-		//plane texture
-		[Embed(source="assets/floor_diffuse.jpg")]
-		public static var FloorDiffuse:Class;
-
 		//engine variables
 		private var _view:View3D;
 
@@ -25,7 +21,7 @@ import away3d.containers.*;
 		/**
 		 * Constructor
 		 */
-		public function Basic_View()
+		public function BaseView()
 		{
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			stage.align = StageAlign.TOP_LEFT;
@@ -40,7 +36,7 @@ import away3d.containers.*;
 			_view.camera.lookAt(new Vector3D());
 
 			//setup the scene
-			_plane = new Mesh(new PlaneGeometry(700, 700), new TextureMaterial(Cast.bitmapTexture(FloorDiffuse)));
+			_plane = new Mesh(new PlaneGeometry(700, 700), new TextureMaterial(Cast.bitmapTexture(Assets.FloorDiffuse)));
 			_view.scene.addChild(_plane);
 
 			//setup the render loop
