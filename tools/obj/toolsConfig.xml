@@ -38,6 +38,8 @@
     <library-path append="true">
       <path-element>D:\src\3dtools\tools\libs\away3d-core-fp11_4_1_6.swc</path-element>
       <path-element>D:\src\3dtools\tools\libs\as3corelib.swc</path-element>
+      <path-element>D:\src\3dtools\tools\libs\robotlegs-framework-v1.5.2.swc</path-element>
+      <path-element>D:\src\3dtools\tools\libs\TweenMax 11.16.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>

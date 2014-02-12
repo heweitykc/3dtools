@@ -54,6 +54,8 @@
   <libraryPaths>
     <element path="libs\away3d-core-fp11_4_1_6.swc" />
     <element path="libs\as3corelib.swc" />
+    <element path="libs\robotlegs-framework-v1.5.2.swc" />
+    <element path="libs\TweenMax 11.16.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

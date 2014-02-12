@@ -13,7 +13,7 @@ import away3d.containers.*;
 	public class BaseView extends Sprite
 	{
 		//engine variables
-		private var _view:View3D;
+		protected var _view:View3D;
 
 		//scene objects
 		private var _plane:Mesh;
