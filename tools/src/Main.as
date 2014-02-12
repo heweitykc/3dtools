@@ -17,7 +17,8 @@ package
 	import away3d.textures.*;
 	import away3d.tools.utils.*;
 	
-	import awaybuilder.view.scene.controls.TranslateGizmo3D;
+	import controls.*;
+	
 	/**
 	 * ...
 	 * @author callee
@@ -25,24 +26,18 @@ package
 	public class Main extends BaseView 
 	{
 		private var _t3d:TranslateGizmo3D;
-		public var backgroundGrid:WireframePlane;
 		
 		override protected function init():void
 		{
 			super.init();
 			_t3d = new TranslateGizmo3D();
 			_view.scene.addChild(_t3d);
-			
-			//Background grid 
-			backgroundGrid = new WireframePlane(10000, 10000, 100, 100, 0x000000, 0.375, "xz");
-			backgroundGrid.mouseEnabled = false;
-			//_view.scene.addChild(backgroundGrid);	
 		}
 		
 		override protected function loop():void
-		{
+		{			
 			super.loop();
-			_t3d.update();
+			_t3d.rotationY += 1;
 		}
 	}
 }

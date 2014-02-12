@@ -45,7 +45,7 @@ package awaybuilder.view.scene.controls
 			var coneGeom:ConeGeometry = new ConeGeometry(10, 20, 16, 1, true, false);
 			var cylGeom:CylinderGeometry = new CylinderGeometry(5, 5, 100, 16, 1, true, true, true, false);		
 			
-			xCylinder = new Mesh(cylGeom, xAxisMaterial);			
+			xCylinder = new Mesh(cylGeom, xAxisMaterial);
 			xCylinder.name = "xAxis";
 			xCylinder.pickingCollider = PickingColliderType.PB_BEST_HIT;
 			xCylinder.mouseEnabled = true;

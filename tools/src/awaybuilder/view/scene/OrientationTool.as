@@ -149,7 +149,7 @@ package awaybuilder.view.scene
 			bottomPlane.material = bottomMaterial;
 			bottomPlane.rotationX = 180;
 			bottomPlane.y = -50;			
-			view.scene.addChild(bottomPlane);				
+			view.scene.addChild(bottomPlane);
 			
 			this.addChild(view);
 		}
