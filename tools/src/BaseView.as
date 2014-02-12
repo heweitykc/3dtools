@@ -35,14 +35,24 @@ import away3d.containers.*;
 			_view.camera.y = 500;
 			_view.camera.lookAt(new Vector3D());
 
-			//setup the scene
-			_plane = new Mesh(new PlaneGeometry(700, 700), new TextureMaterial(Cast.bitmapTexture(Assets.FloorDiffuse)));
-			_view.scene.addChild(_plane);
-
+			init();
+			
 			//setup the render loop
 			addEventListener(Event.ENTER_FRAME, _onEnterFrame);
 			stage.addEventListener(Event.RESIZE, onResize);
 			onResize();
+		}
+		
+		protected function init():void
+		{
+			//setup the scene
+			_plane = new Mesh(new PlaneGeometry(700, 700), new TextureMaterial(Cast.bitmapTexture(Assets.FloorDiffuse)));
+			_view.scene.addChild(_plane);
+		}
+		
+		protected function loop():void
+		{
+			_plane.rotationY += 1;
 		}
 
 		/**
@@ -50,8 +60,7 @@ import away3d.containers.*;
 		 */
 		private function _onEnterFrame(e:Event):void
 		{
-			_plane.rotationY += 1;
-
+			loop();
 			_view.render();
 		}
 
