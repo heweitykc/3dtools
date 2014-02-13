@@ -29,21 +29,21 @@ package
 		protected var cubeMaterial:ColorMaterial = new ColorMaterial(0xff0000, 1);
 		private var _cube:Mesh;
 		private var _cube2:Mesh;
+		
+		//声明移动工具-------------------------------------------
 		private var _tool:ToolManager;
 		
 		override protected function init():void
 		{
 			super.init();
 			
-			_tool = new ToolManager();
-			ToolManager.instance = _tool;
-			ToolManager.stage = this.stage;
-			ToolManager.camera = _view.camera;
-			_tool.translater = new TranslateGizmo3D();
+			//初始化移动工具-------------------------------------------
+			_tool = new ToolManager(stage, _view.camera);
 			
 			_cube = new Mesh(new CubeGeometry(), cubeMaterial);
 			_cube2 = new Mesh(new CubeGeometry(), cubeMaterial);
 			
+			//将移动器加入场景-------------------------------------------
 			_view.scene.addChild(_tool.translater);
 			_view.scene.addChild(_cube);
 			_view.scene.addChild(_cube2);
@@ -61,8 +61,8 @@ package
 		
 		protected function handleMouseDown(e:MouseEvent3D):void
 		{
-			var obj:ObjectContainer3D = e.target as ObjectContainer3D;
-			_tool.dragObj = obj;
+			//设置被移动的物体-------------------------------------------
+			_tool.dragObj = e.target as ObjectContainer3D;
  		}
 		
 		override protected function loop():void

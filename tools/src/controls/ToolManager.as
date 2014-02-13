@@ -11,15 +11,10 @@ package controls
 	public class ToolManager 
 	{
 		public static var instance:ToolManager;
-		
 		public static var stage:Stage;
 		public static var camera:Camera3D;
 		public static var radius:Number = 1000;
 		
-		public function set translater(value:TranslateGizmo3D):void {
-			_translater = value;
-			_translater.visible = false;
-		}
 		public function get translater():TranslateGizmo3D {
 			return _translater;
 		}
@@ -38,9 +33,13 @@ package controls
 		private var _dragObj:ObjectContainer3D;
 		private var _translater:TranslateGizmo3D;
 
-		public function ToolManager() 
+		public function ToolManager(stage:Stage,camera:Camera3D) 
 		{
-			
+			ToolManager.instance = this;
+			ToolManager.stage = stage;
+			ToolManager.camera = camera;
+			_translater = new TranslateGizmo3D();
+			_translater.visible = false;
 		}
 		
 	}
