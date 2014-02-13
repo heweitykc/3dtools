@@ -97,7 +97,7 @@ package controls
 			zCylinder.addEventListener(MouseEvent3D.MOUSE_OVER, handleMouseOver);
 			zCylinder.addEventListener(MouseEvent3D.MOUSE_OUT, handleMouseOut);			
 			zCylinder.addEventListener(MouseEvent3D.MOUSE_DOWN, handleMouseDown);
-			zCylinder.z = 50;
+			zCylinder.z = -50;
 			content.addChild(zCylinder);			
 			
 			zCone = new Mesh(coneGeom, zAxisMaterial);
@@ -173,7 +173,7 @@ package controls
 			active = true;
 			click.x = ToolManager.stage.mouseX;
 			click.y = ToolManager.stage.mouseY;
-			startScenePosition = ToolManager.dragObj.parent.scenePosition.clone();
+			startScenePosition = ToolManager.instance.dragObj.parent.scenePosition.clone();
 			
 			switch(currentAxis)
 			{
@@ -199,6 +199,22 @@ package controls
 		{
 			ToolManager.stage.removeEventListener(MouseEvent.MOUSE_UP, onMouseUp);
 			ToolManager.stage.removeEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
+			switch(currentAxis)
+			{					
+				case "xAxis":
+					xCone.material = xAxisMaterial;
+					xCylinder.material = xAxisMaterial;
+					break;
+				case "yAxis":
+					yCone.material = yAxisMaterial;
+					yCylinder.material = yAxisMaterial;
+					break;
+				
+				case "zAxis":
+					zCone.material = zAxisMaterial;
+					zCylinder.material = zAxisMaterial;
+					break;								
+			}
 			currentAxis = "";
 			active = false;
 		}
@@ -244,10 +260,10 @@ package controls
 			click.y = ToolManager.stage.mouseY;
 			
 			var pos:Vector3D = this.position.subtract(startScenePosition);
-			pos = ToolManager.dragObj.parent.inverseSceneTransform.deltaTransformVector(pos).add(ToolManager.dragObj.position);
-			ToolManager.dragObj.x = this.x;
-			ToolManager.dragObj.y = this.y;
-			ToolManager.dragObj.z = this.z;
+			pos = ToolManager.instance.dragObj.parent.inverseSceneTransform.deltaTransformVector(pos).add(ToolManager.instance.dragObj.position);
+			ToolManager.instance.dragObj.x = this.x;
+			ToolManager.instance.dragObj.y = this.y;
+			ToolManager.instance.dragObj.z = this.z;
 			trace(pos.x+" "+pos.y+" "+pos.z);
 		}
 	}

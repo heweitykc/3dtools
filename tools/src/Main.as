@@ -27,20 +27,43 @@ package
 	public class Main extends BaseView 
 	{
 		protected var cubeMaterial:ColorMaterial = new ColorMaterial(0xff0000, 1);
-		private var _t3d:TranslateGizmo3D;
 		private var _cube:Mesh;
+		private var _cube2:Mesh;
+		private var _tool:ToolManager;
+		
 		override protected function init():void
 		{
 			super.init();
+			
+			_tool = new ToolManager();
+			ToolManager.instance = _tool;
 			ToolManager.stage = this.stage;
 			ToolManager.camera = _view.camera;
-			_t3d = new TranslateGizmo3D();
-			_cube = new Mesh(new CubeGeometry(), cubeMaterial);			
-			_view.scene.addChild(_t3d);
+			_tool.translater = new TranslateGizmo3D();
+			
+			_cube = new Mesh(new CubeGeometry(), cubeMaterial);
+			_cube2 = new Mesh(new CubeGeometry(), cubeMaterial);
+			
+			_view.scene.addChild(_tool.translater);
 			_view.scene.addChild(_cube);
-			_cube.mouseEnabled = false;
-			ToolManager.dragObj = _cube;
+			_view.scene.addChild(_cube2);
+			_cube2.x = 200;
+			
+			initObj(_cube);
+			initObj(_cube2);
 		}
+		
+		private function initObj(obj:ObjectContainer3D):void
+		{
+			obj.mouseEnabled = true;
+			obj.addEventListener(MouseEvent3D.MOUSE_DOWN, handleMouseDown);
+		}
+		
+		protected function handleMouseDown(e:MouseEvent3D):void
+		{
+			var obj:ObjectContainer3D = e.target as ObjectContainer3D;
+			_tool.dragObj = obj;
+ 		}
 		
 		override protected function loop():void
 		{			
