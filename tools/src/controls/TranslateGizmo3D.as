@@ -223,7 +223,7 @@ package controls
 		{
 			var dx:Number = ToolManager.stage.mouseX - click.x;
 			var dy:Number = -(ToolManager.stage.mouseY - click.y);
-			var trans:Number = dx + dy;
+			var trans:Number = (dx + dy)*2;
 			
 			switch(currentAxis)
 			{

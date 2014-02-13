@@ -33,7 +33,7 @@ import away3d.containers.*;
 
 			//setup the camera
 			_view.camera.z = -1000;
-			_view.camera.y = 500;
+			_view.camera.y = 500;			
 			_view.camera.lookAt(new Vector3D());
 
 			init();
