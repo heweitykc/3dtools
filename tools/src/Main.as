@@ -17,6 +17,7 @@ package
 	import away3d.textures.*;
 	import away3d.tools.utils.*;
 	import away3d.materials.ColorMaterial;
+	import away3d.controllers.FirstPersonController;
 	
 	import controls.*;
 	
@@ -67,7 +68,7 @@ package
 		
 		override protected function loop():void
 		{			
-			super.loop();
+			super.loop();			
 			//_t3d.rotationY += 1;
 			//_cube.rotationY += 1;
 		}

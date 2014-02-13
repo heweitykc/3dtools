@@ -1,6 +1,7 @@
 package  
 {
 import away3d.containers.*;
+	import away3d.controllers.FirstPersonController;
 	import away3d.entities.*;
 	import away3d.materials.*;
 	import away3d.primitives.*;
@@ -40,7 +41,7 @@ import away3d.containers.*;
 			//setup the render loop
 			addEventListener(Event.ENTER_FRAME, _onEnterFrame);
 			stage.addEventListener(Event.RESIZE, onResize);
-			onResize();
+			onResize();			
 		}
 		
 		protected function init():void

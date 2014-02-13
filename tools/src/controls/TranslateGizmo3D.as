@@ -223,7 +223,7 @@ package controls
 		{
 			var dx:Number = ToolManager.stage.mouseX - click.x;
 			var dy:Number = -(ToolManager.stage.mouseY - click.y);
-			var trans:Number = (dx + dy) * (ToolManager.radius / 500);
+			var trans:Number = dx + dy;
 			
 			switch(currentAxis)
 			{
@@ -259,12 +259,10 @@ package controls
 			click.x = ToolManager.stage.mouseX;
 			click.y = ToolManager.stage.mouseY;
 			
-			var pos:Vector3D = this.position.subtract(startScenePosition);
-			pos = ToolManager.instance.dragObj.parent.inverseSceneTransform.deltaTransformVector(pos).add(ToolManager.instance.dragObj.position);
-			ToolManager.instance.dragObj.x = this.x;
-			ToolManager.instance.dragObj.y = this.y;
-			ToolManager.instance.dragObj.z = this.z;
-			trace(pos.x+" "+pos.y+" "+pos.z);
+			//var pos:Vector3D = this.position.subtract(startScenePosition);
+			//pos = ToolManager.instance.dragObj.parent.inverseSceneTransform.deltaTransformVector(pos).add(ToolManager.instance.dragObj.position);
+			ToolManager.instance.dragObj.moveTo(x, y, z);
+			//trace(pos.x+" "+pos.y+" "+pos.z);
 		}
 	}
 }
