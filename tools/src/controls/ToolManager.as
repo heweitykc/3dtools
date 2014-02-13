@@ -7,6 +7,7 @@ package controls
 	/**
 	 * ...
 	 * @author callee
+	 * 必须保证移动箭头和物体在同一层级
 	 */
 	public class ToolManager 
 	{
