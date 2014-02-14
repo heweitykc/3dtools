@@ -15,17 +15,8 @@ package controls
 	 * ...
 	 * @author callee
 	 */
-	public class TranslateGizmo3D extends ObjectContainer3D
-	{		
-		public var active:Boolean = false;
-		public var currentAxis:String = "";
-		
-		protected var xAxisMaterial:ColorMaterial = new ColorMaterial(0xff0000, 1);
-		protected var yAxisMaterial:ColorMaterial = new ColorMaterial(0x00cc00, 1);
-		protected var zAxisMaterial:ColorMaterial = new ColorMaterial(0x0033ff, 1);
-		protected var highlightOverMaterial:ColorMaterial = new ColorMaterial(0xffcc00);
-		protected var highlightDownMaterial:ColorMaterial = new ColorMaterial(0xfff000);
-		
+	public class TranslateGizmo3D extends Gizmo3DBase
+	{
 		private var xCylinder:Mesh;
 		private var yCylinder:Mesh;
 		private var zCylinder:Mesh;
@@ -34,9 +25,7 @@ package controls
 		private var yCone:Mesh;
 		private var zCone:Mesh;
 		
-		protected var click:Point = new Point();
 		protected var startScenePosition:Vector3D;
-		protected var content:ObjectContainer3D;
 		
 		public function TranslateGizmo3D() 
 		{

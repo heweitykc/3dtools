@@ -19,6 +19,10 @@ package controls
 			return _translater;
 		}
 		
+		public function get rotater():RotateGizmo3D {
+			return _rotater;
+		}
+		
 		public function set dragObj(value:ObjectContainer3D):void{
 			_dragObj = value;
 			translater.moveTo(_dragObj.position.x,_dragObj.position.y,_dragObj.position.z);
@@ -30,6 +34,7 @@ package controls
 		
 		private var _dragObj:ObjectContainer3D;
 		private var _translater:TranslateGizmo3D;
+		private var _rotater:RotateGizmo3D;
 
 		public function ToolManager(stage:Stage,camera:Camera3D) 
 		{
@@ -38,6 +43,9 @@ package controls
 			ToolManager.camera = camera;
 			_translater = new TranslateGizmo3D();
 			_translater.visible = false;
+			
+			_rotater = new RotateGizmo3D();
+			_rotater.visible = false;
 		}
 		
 	}
