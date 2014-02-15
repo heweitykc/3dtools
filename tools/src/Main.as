@@ -30,6 +30,7 @@ package
 		protected var cubeMaterial:ColorMaterial = new ColorMaterial(0xff0000, 1);
 		private var _cube:Mesh;
 		private var _cube2:Mesh;
+		private var _control:CameraControl;
 		
 		//声明移动工具-------------------------------------------
 		private var _tool:ToolManager;
@@ -37,6 +38,8 @@ package
 		override protected function init():void
 		{
 			super.init();
+			
+			_control = new CameraControl(_view.camera,stage);
 			
 			//初始化移动工具-------------------------------------------
 			_tool = new ToolManager(stage, _view.camera);
@@ -68,7 +71,7 @@ package
 		
 		override protected function loop():void
 		{			
-			super.loop();			
+			//super.loop();			
 			//_t3d.rotationY += 1;
 			//_cube.rotationY += 1;
 		}

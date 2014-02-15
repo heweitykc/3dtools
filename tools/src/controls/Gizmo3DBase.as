@@ -13,7 +13,9 @@ package controls
 		public var active:Boolean = false;
 		public var currentAxis:String = "";
 		
+		protected var F:ObjectContainer3D;
 		protected var content:ObjectContainer3D;
+		
 		protected var click:Point = new Point();
 		protected var click2:Point = new Point();
 		
@@ -28,7 +30,8 @@ package controls
 		
 		public function Gizmo3DBase() 
 		{
-			
+			content = new ObjectContainer3D();
+			this.addChild(content);
 		}
 		
 	}

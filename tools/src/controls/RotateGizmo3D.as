@@ -33,8 +33,7 @@ package controls
 		private var behindGizmoPlane : Boolean;
 				
 		public function RotateGizmo3D() 
-		{
-			
+		{	
 			var sphereGeom:SphereGeometry = new SphereGeometry(95, 16, 12, true);
 			
 			sphere = new Mesh(sphereGeom, sphereMaterial);

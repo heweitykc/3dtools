@@ -28,10 +28,7 @@ package controls
 		protected var startScenePosition:Vector3D;
 		
 		public function TranslateGizmo3D() 
-		{
-			content = new ObjectContainer3D();
-			this.addChild(content);
-			
+		{	
 			var coneGeom:ConeGeometry = new ConeGeometry(10, 20, 16, 1, true, false);
 			var cylGeom:CylinderGeometry = new CylinderGeometry(5, 5, 100, 16, 1, true, true, true, false);		
 			
@@ -86,7 +83,7 @@ package controls
 			zCylinder.addEventListener(MouseEvent3D.MOUSE_OVER, handleMouseOver);
 			zCylinder.addEventListener(MouseEvent3D.MOUSE_OUT, handleMouseOut);			
 			zCylinder.addEventListener(MouseEvent3D.MOUSE_DOWN, handleMouseDown);
-			zCylinder.z = -50;
+			zCylinder.z = 50;
 			content.addChild(zCylinder);			
 			
 			zCone = new Mesh(coneGeom, zAxisMaterial);
